@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <%= t.include("partials/_head.html") %>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+    <responsive-child>
+      <div class="year"></div>
+      <%= t.include("./assets/uw_campus.svg") %>
+      <div class="sources">
+        Sources: University of Washington, Sasaki Design
+      </div>
+      <div class="credits">AUDREY CARLSEN / THE SEATTLE TIMES</div>
+    </responsive-child>
+
+    <script>
+      var buildingData = <%= JSON.stringify(csv.colorizer) %>
+    </script>
+    <script src="app.js" async></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_foot.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
+  </body>
+</html>
