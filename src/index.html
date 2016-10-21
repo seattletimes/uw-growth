@@ -7,12 +7,26 @@
   <body>
 
     <responsive-child>
-      <div class="year"></div>
-      <%= t.include("./assets/uw_campus.svg") %>
-      <div class="sources">
-        Sources: University of Washington, Sasaki Design
+      <div class="inner">
+
+        <div class="title">How the UW has grown</div>
+
+        <div class="chatter">Since the last master plan was approved in 2003, the University of Washington has built nearly 3 million additional square feet of academic, research, athletic and office space on the 639-acre campus.</div>
+
+        <div class="key-label">Since 2003:</div>
+        <div class="key"><div class="new swatch"></div> New construction</div>
+        <div class="bottom key"><div class="renovation swatch"></div> Major renovation</div>
+
+        <div class="container">
+          <div class="year">2003</div>
+          
+          <%= t.include("./assets/uw_growth.svg") %>
+        </div>
+        <div class="sources">
+          Sources: University of Washington, Sasaki Design
+        </div>
+        <div class="credits">AUDREY CARLSEN / THE SEATTLE TIMES</div>
       </div>
-      <div class="credits">AUDREY CARLSEN / THE SEATTLE TIMES</div>
     </responsive-child>
 
     <script>

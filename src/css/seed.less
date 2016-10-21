@@ -1,20 +1,97 @@
 @import "seattletimes";
 
 body {
-  max-width: 960px;
+  max-width: 630px;
   margin: auto;
+  font-family: @df-sans;
+}
+
+.inner {
+  margin: 40px 0;
+}
+.container {
+  position: relative;
+  line-height: 0;
+}
+
+.title {
+  font-weight:  bold;
+  font-size: 24px;
+  padding-bottom: 5px;
+}
+
+.chatter {
+  font-size: 15px;
+  color: @df-dark-gray;
+  padding-bottom: 10px;
+}
+
+.key-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: @df-middle-gray;
+  margin-bottom: 5px;
+}
+
+.key {
+  font-size: 14px;
+  font-style: italic;
+  color: @df-middle-gray;
+
+  .swatch {
+    margin-right: 4px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+
+    &.new {
+      background: #ad6c94;
+    }
+    &.renovation {
+      background: #e69a7a;
+    }
+  }
+
+  &.bottom {
+    margin-bottom: 15px;
+  }
 }
 
 .hidden {
   display: none;
 }
 
+.new {
+  fill: #bf0176 !important;
+  stroke: black !important;
+}
+.old {
+  fill: #ad6c94 !important;
+  stroke: black !important;
+}
+.new-renovation {
+  fill: #e04f12 !important;
+  stroke: black !important;
+
+  polygon {
+    fill: #e04f12 !important;
+  }
+}
+.old-renovation {
+  fill: #e69a7a !important;
+  stroke: black !important;
+
+  polygon {
+    fill: #e69a7a !important;
+  }
+}
+
 .year {
+  line-height: 1.4em;
   position: absolute;
   color: white;
-  top: 0px;
+  bottom: 0px;
   background: @df-dark-gray;
-  font-family: @df-sans;
   padding: 6px 15px;
   min-width: 100px;
   font-size: 28px;
@@ -24,12 +101,12 @@ body {
 
 .credits, .sources{
   color: @df-middle-gray;
-  font-size: 11px;
-  font-family: @df-sans;
+  font-size: 10.5px;
   text-align: right;
 }
 .sources {
+  padding-top: 10px;
   font-style: italic;
-  font-size: 11.5px;
+  font-size: 11px;
   padding-bottom: 2px;
 }

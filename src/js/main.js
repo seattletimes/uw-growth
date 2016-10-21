@@ -31,19 +31,31 @@ var color = function() {
     if (!keyedBuildingData[name]) return;
     if (keyedBuildingData[name]["BUILDING AGE"] > year) {
       savage(b).addClass("hidden");
-    } else {
+    } else if (keyedBuildingData[name]["RENOVATION AGE"] > year) {
+      savage(b).removeClass("old-renovation");
+    } else if (keyedBuildingData[name]["BUILDING AGE"] == year) {
       savage(b).removeClass("hidden");
+      savage(b).removeClass("old");
+      savage(b).addClass("new");
+    } else if (keyedBuildingData[name]["RENOVATION AGE"] == year) {
+      savage(b).removeClass("old-renovation");
+      savage(b).addClass("new-renovation");
+    } else if (keyedBuildingData[name]["BUILDING AGE"] >= 2003) {
+      savage(b).removeClass("new");
+      savage(b).addClass("old");
+    } else if (keyedBuildingData[name]["RENOVATION AGE"] >= 2003 && keyedBuildingData[name]["RENOVATION AGE"] < year) {
+      savage(b).removeClass("new-renovation");
+      savage(b).addClass("old-renovation");
     }
   })
 
-  setTimeout(function(){
-    if (year == 2016) {
-      year = 2003;
-    } else {
-      year += 1;
-    }
-    color();
-  }, 750);
+  if (year == 2016) {
+    year = 2003;
+    setTimeout(color, 3000);
+  } else {
+    year += 1;
+    setTimeout(color, 1000);
+  }
 };
 
 color();
